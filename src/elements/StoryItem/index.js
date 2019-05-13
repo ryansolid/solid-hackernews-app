@@ -9,8 +9,8 @@ const StoryItem = ({ story }) =>
     {
       story.url ?
         <>
-          <a href={story.url}>{story.title}</a>
-          <small class='light'> (<a href={story.url}>{urlHost(story.url)}</a>)</small>
+          <a href={story.url}>{story.title}</a> 
+          <small class='light'>(<a href={story.url}>{urlHost(story.url)}</a>)</small>
         </> :
         <a is='route-link' name='story' params={{storyId: story.id}}>{story.title}</a>
     }
