@@ -1,0 +1,34 @@
+:host {
+  margin: 20px 0;
+  font-size: 9pt;
+}
+
+.header {
+  margin-bottom: 5px;
+}
+
+.body a {
+  text-decoration: underline;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
+
+.light {
+  color: #828282;
+}
+
+.light a:hover {
+  text-decoration: underline;
+}
+
+.subtext {
+  font-size: 7pt;
+}

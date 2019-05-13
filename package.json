@@ -1,0 +1,25 @@
+{
+  "name": "solid-hackernews-app",
+  "version": "0.1.0",
+  "homepage": "http://ryansolid.github.io/solid-hackernews-app",
+  "private": true,
+  "dependencies": {
+    "firebase": "^2.4.2",
+    "solid-element": "^0.4.0",
+    "solid-js": "^0.6.3",
+    "solid-scripts": "0.0.11",
+    "webcomponent-router": "0.4.3"
+  },
+  "scripts": {
+    "start": "solid-scripts start",
+    "build": "solid-scripts build",
+    "test": "solid-scripts test"
+  },
+  "browserslist": [
+    "Chrome 74",
+    "Firefox 63",
+    "Safari 11",
+    "Edge 17",
+    "Node 10"
+  ]
+}

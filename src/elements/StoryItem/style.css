@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-height: 27px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.light {
+  color: #828282;
+}
+
+.light a:hover {
+  text-decoration: underline;
+}
+
+.subtext {
+  font-size: 7pt;
+}
