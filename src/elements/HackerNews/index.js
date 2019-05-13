@@ -6,7 +6,7 @@ import setupRoutes from '../../setupRoutes';
 import style from './style.css';
 
 const HackerNews = (_, { element }) => {
-  const router = new Router(element);
+  const router = new Router(element, { root: process.env.NODE_ENV === 'production' ? 'solid-hackernews-app/' : '' });
   setupRoutes(router);
   router.start();
   createProvider(Store);
