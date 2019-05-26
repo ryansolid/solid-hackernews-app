@@ -1,5 +1,5 @@
-import { createState } from 'solid-js';
-import { customElement, useContext } from 'solid-element';
+import { createState, useContext, reconcile } from 'solid-js';
+import { customElement } from 'solid-element';
 
 import Store from '../../Store';
 import { relativeTime } from '../../lib/format';
@@ -11,7 +11,7 @@ const CommentItem = ({ commentId }) => {
 
   watch(
     {name: 'story', id: commentId},
-    comment => setState({ comment })
+    comment => setState(reconcile('comment', comment))
   );
 
   return <>

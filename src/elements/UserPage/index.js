@@ -1,5 +1,5 @@
-import { createState } from 'solid-js';
-import { customElement, useContext } from 'solid-element';
+import { createState, useContext } from 'solid-js';
+import { customElement } from 'solid-element';
 
 import Store from '../../Store';
 import style from './style.css';

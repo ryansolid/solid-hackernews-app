@@ -1,5 +1,4 @@
-import { createSignal, createEffect } from 'solid-js';
-import { createContext } from 'solid-element';
+import { createSignal, createEffect, createContext } from 'solid-js';
 import Firebase from 'firebase';
 
 export default createContext(() => {
