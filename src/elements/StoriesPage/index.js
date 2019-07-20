@@ -22,9 +22,9 @@ const StoriesPage = props => {
 
   return <>
     <style>{ style }</style>
-    <$ each={ state.stories }>{story =>
+    <For each={( state.stories )}>{story =>
       <story-item story={ story } />
-    }</$>
+    }</For>
     <a is='route-link' query={({ page: props.page + 1 })} class="paginator">More</a>
   </>
 }

@@ -16,7 +16,7 @@ const CommentItem = ({ commentId }) => {
 
   return <>
     <style>{style}</style>
-    <$ when={state.comment && !state.comment.deleted && !state.comment.dead && state.comment.text}>
+    <Show when={(state.comment && !state.comment.deleted && !state.comment.dead && state.comment.text)}>
       <div class="header light">
         <a is="route-link" name="user" params={{userId: state.comment.by}}>{state.comment.by}</a> 
         <a is="route-link" name="story" params={{storyId: state.comment.id}}>{relativeTime(state.comment.time*1000)}</a>
@@ -24,11 +24,11 @@ const CommentItem = ({ commentId }) => {
       </div>
       <div hidden={(state.hidden)}>
         <div class='body' innerHTML={state.comment.text || ''} />
-        <ul><$ each={state.comment.kids}>{childCommentId =>
+        <ul><For each={(state.comment.kids)}>{childCommentId =>
           <li><comment-item commentId={childCommentId} /></li>
-        }</$></ul>
+        }</For></ul>
       </div>
-    </$>
+    </Show>
   </>
 };
 

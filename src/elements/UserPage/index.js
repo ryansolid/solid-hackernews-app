@@ -15,14 +15,12 @@ const UserPage = ({ userId }) => {
 
   return <>
     <style>{style}</style>
-    <$ when={state.user}>{user =>
-      <>
-        <p>user: {user.id}</p>
-        <p>created: {user.created}</p>
-        <p>karma: {user.karma}</p>
-        <p>about: <span innerHTML={user.about} /></p>
-      </>
-    }</$>
+    <Show when={state.user}>
+      <p>user: {state.user.id}</p>
+      <p>created: {state.user.created}</p>
+      <p>karma: {state.user.karma}</p>
+      <p>about: <span innerHTML={state.user.about} /></p>
+    </Show>
   </>
 };
 

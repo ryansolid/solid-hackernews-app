@@ -19,15 +19,13 @@ const StoryPage = props => {
 
   return <>
     <style>{style}</style>
-    <$ when={state.story}>{story =>
-      <>
-        <story-item story={story}></story-item>
-        <div class='body' innerHTML={story.text || ''} />
-        <ul><$ each={story.kids}>{commentId =>
-          <li><comment-item commentId={commentId} /></li>
-        }</$></ul>
-      </>
-    }</$>
+    <Show when={(state.story)}>
+      <story-item story={(state.story)}></story-item>
+      <div class='body' innerHTML={(state.story.text || '')} />
+      <ul><For each={(state.story.kids)}>{commentId =>
+        <li><comment-item commentId={commentId} /></li>
+      }</For></ul>
+    </Show>
   </>
 }
 
