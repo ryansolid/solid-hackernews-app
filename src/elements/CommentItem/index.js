@@ -1,13 +1,13 @@
-import { createState, useContext, reconcile } from 'solid-js';
+import { createState, reconcile } from 'solid-js';
 import { customElement } from 'solid-element';
 
-import Store from '../../Store';
+import { useStore } from '../../Store';
 import { relativeTime } from '../../lib/format';
 import style from './style.css';
 
 const CommentItem = ({ commentId }) => {
   const [state, setState] = createState({ hidden: false }),
-    watch = useContext(Store);
+    watch = useStore();
 
   watch(
     {name: 'story', id: commentId},

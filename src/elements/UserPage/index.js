@@ -1,12 +1,12 @@
-import { createState, useContext } from 'solid-js';
+import { createState } from 'solid-js';
 import { customElement } from 'solid-element';
 
-import Store from '../../Store';
+import { useStore } from '../../Store';
 import style from './style.css';
 
 const UserPage = ({ userId }) => {
   const [state, setState] = createState(),
-    watch = useContext(Store);
+    watch = useStore();
 
   watch(
     {name: 'user', id: userId},

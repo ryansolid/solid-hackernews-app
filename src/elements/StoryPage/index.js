@@ -1,14 +1,14 @@
-import { createState, createEffect, useContext, reconcile } from 'solid-js';
+import { createState, createEffect, reconcile } from 'solid-js';
 import { customElement } from 'solid-element';
 
 import(/*webpackChunkName: "story-item"*/ "../StoryItem");
 import(/*webpackChunkName: "comment-item"*/ "../CommentItem");
-import Store from '../../Store';
+import { useStore } from '../../Store';
 import style from './style.css';
 
 const StoryPage = props => {
   const [state, setState] = createState(),
-    watch = useContext(Store);
+    watch = useStore();
 
   createEffect(() =>
     watch(

@@ -1,7 +1,16 @@
-import { createSignal, createEffect, createContext } from 'solid-js';
+import { createSignal, createEffect, createContext, useContext } from 'solid-js';
 import Firebase from 'firebase';
 
-export default createContext(() => {
+const StoreContext = createContext();
+export function StoreProvider(props) {
+  return <StoreContext.Provider value={createStore()}>{(
+    props.children
+  )}</StoreContext.Provider>
+}
+
+export function useStore() { return useContext(StoreContext); }
+
+function createStore() {
   const api = new Firebase('https://hacker-news.firebaseio.com/v0')
   const [data, setData] = createSignal({
     cache: new Map(),
@@ -69,4 +78,4 @@ export default createContext(() => {
         break;
     }
   };
-});
+};

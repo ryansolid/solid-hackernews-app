@@ -1,7 +1,7 @@
 import { customElement } from 'solid-element';
 import Router from 'webcomponent-router';
 
-import StoreContext from '../../Store';
+import { StoreProvider } from '../../Store';
 import setupRoutes from '../../setupRoutes';
 import style from './style.css';
 
@@ -13,9 +13,9 @@ const HackerNews = (_, { element }) => {
   return <>
     <style>{style}</style>
     <app-nav />
-    <StoreContext.Provide>
+    <StoreProvider>
       <slot />
-    </StoreContext.Provide>
+    </StoreProvider>
   </>
 }
 
