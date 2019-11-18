@@ -13,7 +13,7 @@ const StoryPage = props => {
   createEffect(() =>
     watch(
       {name: 'story', id: props.storyId},
-      story => setState(reconcile('story', story))
+      story => setState('story', reconcile(story))
     )
   );
 

@@ -11,7 +11,7 @@ const CommentItem = ({ commentId }) => {
 
   watch(
     {name: 'story', id: commentId},
-    comment => setState(reconcile('comment', comment))
+    comment => setState('comment', reconcile(comment))
   );
 
   return <>

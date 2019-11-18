@@ -17,7 +17,7 @@ const StoriesPage = props => {
         type: props.type,
         page: props.page
       },
-      stories => setState(reconcile("stories", stories))
+      stories => setState("stories", reconcile(stories))
     )
   );
 
