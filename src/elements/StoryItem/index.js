@@ -25,10 +25,10 @@ const StoryItem = ({ story }) =>
         }
       >
         {story.score && `${story.score} points by `}
-        <a is='route-link' name='user' params={{userId: story.by}}>{story.by}</a> 
+        <a is='route-link' name='user' params={{userId: story.by}}>{story.by}</a>{" "}
         <a is='route-link' name='story' params={{storyId: story.id}}>{
           relativeTime(story.time * 1000)
-        }</a> | 
+        }</a> |{" "}
         <a is='route-link' name='story' params={{storyId: story.id}}>{
           story.descendants ? `${story.descendants} comments` : 'discuss'
         }</a>

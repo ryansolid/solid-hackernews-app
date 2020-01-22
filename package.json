@@ -5,8 +5,8 @@
   "private": true,
   "dependencies": {
     "firebase": "^2.4.2",
-    "solid-element": "0.8.1",
-    "solid-scripts": "0.0.24",
+    "solid-element": "0.16.2",
+    "solid-scripts": "0.0.26",
     "webcomponent-router": "0.4.3"
   },
   "scripts": {
