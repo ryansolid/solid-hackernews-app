@@ -1,4 +1,4 @@
-import { createState, reconcile } from 'solid-js';
+import { createState } from 'solid-js';
 import { customElement } from 'solid-element';
 
 import { useStore } from '../../Store';
@@ -11,14 +11,14 @@ const CommentItem = ({ commentId }) => {
 
   watch(
     {name: 'story', id: commentId},
-    comment => setState('comment', reconcile(comment))
+    comment => setState('comment', comment)
   );
 
   return <>
     <style>{style}</style>
     <Show when={state.comment && !state.comment.deleted && !state.comment.dead && state.comment.text}>
       <div class="header light">
-        <a is="route-link" name="user" params={{userId: state.comment.by}}>{state.comment.by}</a> 
+        <a is="route-link" name="user" params={{userId: state.comment.by}}>{state.comment.by}</a>{" "}
         <a is="route-link" name="story" params={{storyId: state.comment.id}}>{
           relativeTime(state.comment.time*1000)
         }</a>

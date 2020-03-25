@@ -1,4 +1,4 @@
-import { createState, createEffect, reconcile } from 'solid-js';
+import { createState, createEffect } from 'solid-js';
 import { customElement } from 'solid-element';
 
 import(/*webpackChunkName: "story-item"*/ "../StoryItem");
@@ -13,7 +13,7 @@ const StoryPage = props => {
   createEffect(() =>
     watch(
       {name: 'story', id: props.storyId},
-      story => setState('story', reconcile(story))
+      story => setState('story', story)
     )
   );
 
