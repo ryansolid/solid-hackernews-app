@@ -1,4 +1,4 @@
-import { createState, createEffect, reconcile } from "solid-js";
+import { createState, createEffect } from "solid-js";
 import { customElement } from "solid-element";
 
 import(/*webpackChunkName: "story-item"*/ "../StoryItem");
@@ -8,18 +8,12 @@ import style from "./style.css";
 
 const StoriesPage = props => {
   const [state, setState] = createState(),
-    watch = useStore();
+    { getStories } = useStore();
 
-  createEffect(() =>
-    watch(
-      {
-        name: "stories",
-        type: props.type,
-        page: props.page
-      },
-      stories => setState("stories", reconcile(stories))
-    )
-  );
+  createEffect(async () => {
+    const stories = await getStories(props.type, props.page);
+    setState({ stories });
+  });
 
   return (
     <>
