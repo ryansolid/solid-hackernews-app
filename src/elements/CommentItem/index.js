@@ -23,13 +23,13 @@ const CommentItem = ({ commentId }) => {
         }
       >
         <div class="header light">
-          <a is="route-link" name="user" params={{ userId: state.comment.by }}>
+          <a is="route-link" name="user" prop:params={{ userId: state.comment.by }}>
             {state.comment.by}
           </a>{" "}
           <a
             is="route-link"
             name="story"
-            params={{ storyId: state.comment.id }}
+            prop:params={{ storyId: state.comment.id }}
           >
             {relativeTime(state.comment.time * 1000)}
           </a>
@@ -43,7 +43,7 @@ const CommentItem = ({ commentId }) => {
             <For each={state.comment.kids}>
               {childCommentId => (
                 <li>
-                  <comment-item commentId={childCommentId} />
+                  <comment-item comment-id={childCommentId} />
                 </li>
               )}
             </For>

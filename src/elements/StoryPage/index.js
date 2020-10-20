@@ -25,7 +25,7 @@ const StoryPage = props => {
           <For each={state.story.kids}>
             {commentId => (
               <li>
-                <comment-item commentId={commentId} />
+                <comment-item comment-id={commentId} />
               </li>
             )}
           </For>
