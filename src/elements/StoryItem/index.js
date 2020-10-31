@@ -1,6 +1,4 @@
 import { customElement } from 'solid-element';
-
-import { urlHost, relativeTime } from '../../lib/format';
 import style from './style.css';
 
 const StoryItem = ({ story }) =>
@@ -13,24 +11,23 @@ const StoryItem = ({ story }) =>
       }
     >
       <a href={story.url}>{story.title}</a>
-      <small class='light'>(<a href={story.url}>{urlHost(story.url)}</a>)</small>
+      <small class='light'>(<a href={story.url}>{story.domain}</a>)</small>
     </Show>
     <div class='subtext light'>
       <Show
         when={ story.type !== 'job' }
         fallback={
-          <a is='route-link' name='story' prop:params={{storyId: story.id}}>{
-            relativeTime(story.time * 1000)}
+          <a is='route-link' name='story' prop:params={{storyId: story.id}}>{story.time_ago}
           </a>
         }
       >
-        {story.score && `${story.score} points by `}
-        <a is='route-link' name='user' prop:params={{userId: story.by}}>{story.by}</a>{" "}
+        {story.points && `${story.points} points by `}
+        <a is='route-link' name='user' prop:params={{userId: story.user}}>{story.user}</a>{" "}
         <a is='route-link' name='story' prop:params={{storyId: story.id}}>{
-          relativeTime(story.time * 1000)
+          story.time_ago
         }</a> |{" "}
         <a is='route-link' name='story' prop:params={{storyId: story.id}}>{
-          story.descendants ? `${story.descendants} comments` : 'discuss'
+          story.comments_count ? `${story.comments_count} comments` : 'discuss'
         }</a>
       </Show>
     </div>

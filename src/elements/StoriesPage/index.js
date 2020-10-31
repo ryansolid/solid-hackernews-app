@@ -11,6 +11,7 @@ const StoriesPage = props => {
     { getStories } = useStore();
 
   createComputed(async () => {
+    console.log(props.page)
     const stories = await getStories(props.type, props.page);
     setState({ stories });
   });
@@ -19,7 +20,7 @@ const StoriesPage = props => {
     <>
       <style>{style}</style>
       <For each={state.stories}>{story => <story-item story={story} />}</For>
-      <a is="route-link" query={{ page: props.page + 1 }} class="paginator">
+      <a is="route-link" prop:query={{ page: props.page + 1 }} class="paginator">
         More
       </a>
     </>
@@ -28,6 +29,6 @@ const StoriesPage = props => {
 
 export default customElement(
   "stories-page",
-  { type: "top", page: 0 },
+  { type: "top", page: 1 },
   StoriesPage
 );

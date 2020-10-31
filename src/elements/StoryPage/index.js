@@ -20,12 +20,12 @@ const StoryPage = props => {
       <style>{style}</style>
       <Show when={state.story}>
         <story-item story={state.story}></story-item>
-        <div class="body" innerHTML={state.story.text || ""} />
+        <div class="body" innerHTML={state.story.content || ""} />
         <ul>
-          <For each={state.story.kids}>
-            {commentId => (
+          <For each={state.story.comments}>
+            {comment => (
               <li>
-                <comment-item comment-id={commentId} />
+                <comment-item comment={comment} />
               </li>
             )}
           </For>

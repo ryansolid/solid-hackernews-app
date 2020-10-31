@@ -4,7 +4,7 @@
   "homepage": "http://ryansolid.github.io/solid-hackernews-app",
   "private": true,
   "dependencies": {
-    "solid-element": "0.21.0",
+    "solid-element": "0.21.4",
     "solid-scripts": "0.0.42",
     "webcomponent-router": "0.4.3"
   },
@@ -18,6 +18,6 @@
     "Firefox 63",
     "Safari 11",
     "Edge 17",
-    "Node 10"
+    "Node 12"
   ]
 }

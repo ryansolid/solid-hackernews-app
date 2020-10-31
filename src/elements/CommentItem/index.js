@@ -1,49 +1,28 @@
 import { createState } from "solid-js";
 import { customElement } from "solid-element";
-
-import { useStore } from "../../Store";
-import { relativeTime } from "../../lib/format";
 import style from "./style.css";
 
-const CommentItem = ({ commentId }) => {
-  const [state, setState] = createState({ hidden: false }),
-    { getItem } = useStore();
-
-  getItem(commentId).then(comment => setState({ comment }));
+const CommentItem = ({ comment }) => {
+  const [state, setState] = createState({ hidden: false });
 
   return (
     <>
       <style>{style}</style>
-      <Show
-        when={
-          state.comment &&
-          !state.comment.deleted &&
-          !state.comment.dead &&
-          state.comment.text
-        }
-      >
+      <Show when={comment && !comment.deleted && !comment.dead && comment.content}>
         <div class="header light">
-          <a is="route-link" name="user" prop:params={{ userId: state.comment.by }}>
-            {state.comment.by}
+          <a is="route-link" name="user" prop:params={{ userId: comment.user }}>
+            {comment.user}
           </a>{" "}
-          <a
-            is="route-link"
-            name="story"
-            prop:params={{ storyId: state.comment.id }}
-          >
-            {relativeTime(state.comment.time * 1000)}
-          </a>
-          <a onClick={() => setState("hidden", h => !h)}>
-            {state.hidden ? "[+]" : "[-]"}
-          </a>
+          {comment.time_ago}
+          <a onClick={() => setState("hidden", (h) => !h)}>{state.hidden ? "[+]" : "[-]"}</a>
         </div>
         <div hidden={state.hidden}>
-          <div class="body" innerHTML={state.comment.text || ""} />
+          <div class="body" innerHTML={comment.content || ""} />
           <ul>
-            <For each={state.comment.kids}>
-              {childCommentId => (
+            <For each={comment.comments}>
+              {(child) => (
                 <li>
-                  <comment-item comment-id={childCommentId} />
+                  <comment-item comment={child} />
                 </li>
               )}
             </For>
@@ -54,4 +33,4 @@ const CommentItem = ({ commentId }) => {
   );
 };
 
-export default customElement("comment-item", { commentId: 0 }, CommentItem);
+export default customElement("comment-item", { comment: null }, CommentItem);
