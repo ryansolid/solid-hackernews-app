@@ -1,4 +1,5 @@
-import { createState, createComputed } from "solid-js";
+import { createComputed } from "solid-js";
+import { createStore } from "solid-js/store";
 import { customElement } from "solid-element";
 
 import(/*webpackChunkName: "story-item"*/ "../StoryItem");
@@ -7,7 +8,7 @@ import { useStore } from "../../Store";
 import style from "./style.css";
 
 const StoryPage = props => {
-  const [state, setState] = createState(),
+  const [state, setState] = createStore(),
     { getItem } = useStore();
 
   createComputed(async () => {

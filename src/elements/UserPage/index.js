@@ -1,11 +1,11 @@
-import { createState } from "solid-js";
+import { createStore } from "solid-js/store";
 import { customElement } from "solid-element";
 
 import { useStore } from "../../Store";
 import style from "./style.css";
 
 const UserPage = ({ userId }) => {
-  const [state, setState] = createState(),
+  const [state, setState] = createStore(),
     { getUser } = useStore();
 
   getUser(userId).then(user => setState({ user }));

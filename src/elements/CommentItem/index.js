@@ -1,9 +1,9 @@
-import { createState } from "solid-js";
+import { createSignal } from "solid-js";
 import { customElement } from "solid-element";
 import style from "./style.css";
 
 const CommentItem = ({ comment }) => {
-  const [state, setState] = createState({ hidden: false });
+  const [hidden, setHidden] = createSignal(false);
 
   return (
     <>
@@ -14,9 +14,9 @@ const CommentItem = ({ comment }) => {
             {comment.user}
           </a>{" "}
           {comment.time_ago}
-          <a onClick={() => setState("hidden", (h) => !h)}>{state.hidden ? "[+]" : "[-]"}</a>
+          <a onClick={() => setHidden(h => !h)}>{hidden() ? "[+]" : "[-]"}</a>
         </div>
-        <div hidden={state.hidden}>
+        <div hidden={hidden()}>
           <div class="body" innerHTML={comment.content || ""} />
           <ul>
             <For each={comment.comments}>
