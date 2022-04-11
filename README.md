@@ -1,5 +1,7 @@
 # Solid Hacker News App
 
+This is an older webcomponent demo. If you want to see the latest Solid Hackernews look [here](https://github.com/solidjs/solid-hackernews)
+
 Demo app based on [NX-JS Hacker News Example](https://github.com/nx-js/hackernews-example). Use Solid Element and WebComponent Router with Solid.
 
 You can view it [here](http://ryansolid.github.io/solid-hackernews-app).
